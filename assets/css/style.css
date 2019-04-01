@@ -1,0 +1,16 @@
+.display-4 {
+    text-align: center;
+    color: #aaa;
+    font-weight: bold;
+}
+
+body {
+    background-image: url("../images/illustration.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron {
+    background: none;
+
+}
