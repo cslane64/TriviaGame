@@ -1,16 +1,33 @@
 .display-4 {
     text-align: center;
-    color: #aaa;
+    color: #eee;
     font-weight: bold;
 }
 
-body {
+/*body {
     background-image: url("../images/illustration.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    z-index: 1000;
+}*/
+
+#timer {
+    background-color: pink;
+
 }
 
+#timer-left-margin {
+    background-color:#aaa;
+    display: flex;
+
+    
+}
 .jumbotron {
     background: none;
 
+}
+#start-game {
+    background-color: #eee;
+    color: #000;
+    margin: 0 auto;
 }

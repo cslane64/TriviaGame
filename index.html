@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="assets/javascript/app.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -16,25 +18,28 @@
     <div class="wrapper" id="background">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">Boston Sports Trivia Quiz</h1>
-                <!--<p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>-->
+                <h1 class="display-4">Boston Sports Trivia Game</h1>
+                
             </div>
         </div>
-        <div class="row" id="timer">
+        <div class="row" id="timer-row">
 
-        </div>
-        <div class="col-md-8" id="timer-left-margin">
 
-        </div>
-        <div class="col-md-8" id="timer">
+            <div class="col-md-8" id="timer-left-margin">
+                <!--<button class="btn btn-primary" id="start-game" type="submit">Start Game</button>-->
+                <button class="button" id="start-game" type="button">Start Game</button>
+               <!-- <button id="start-game">Stop</button>-->
+            </div>
+            <div class="col-md-4" id="timer">
 
+            </div>
         </div>
-        <div class="row" id="question-row">
-            <div class="col-lg-6" id="question-left-margin">
+            <div class="row" id="question-row">
+                <div class="col-lg-6" id="question-left-margin">
 
                 </div>
                 <div class="col-lg-6" id="question">
-                    <p>Who is currently considered the Greatest of All time in the NFL</p>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -45,10 +50,10 @@
         </div>
         <div class="col-lg-6" id="answer">
             <ul class="answer-list">
-                <li class="guess" id="A">Charlie Chan</li>
-                <li class="guess" id="B">Jackie Chan</li>
-                <li class="guess" id="C">Tom Brady</li>
-                <li class="guess" id="D">Chris Lane</li>
+                <li class="guess" id="A"></li>
+                <li class="guess" id="B"></li>
+                <li class="guess" id="C"></li>
+                <li class="guess" id="D"></li>
             </ul>
         </div>
     </div>
