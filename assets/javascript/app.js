@@ -108,12 +108,11 @@ var questions = {
 
 var num = 20;
 var intervalId;
-//var questionInterval = setInterval(decreaseTime, 1000);
 var correctGuesses = 0;
 var wrongGuesses = 0;
 var noGuess = 0;
 var questionNumber =0;
-var newGame = true;
+
 
 
 
@@ -142,7 +141,7 @@ function decreaseTime(){
     if (num === 0) {
       //console.log("done");
       clearInterval(intervalId);
-      showAnswer();
+      showAnswer(3);
       noGuess++;
       
     }
@@ -154,6 +153,7 @@ function resetGame() {
   wrongGuesses = 0;
   noGuess = 0;
   questionNumber = 0;
+  $("#reset-game").hide();
   start();
 }
 
@@ -197,8 +197,10 @@ function nextQuestion() {
     
     if (x===1) {
       $("#ask").prepend("<h2>That is Correct</h2>");
-    } else {
+    } else if (x===0){
       $("#ask").prepend("<h2>That is not Correct</h2>");
+    } else {
+      $("#ask").prepend("<h2>Time is up!</h2>");
     }
     var answerImage = $("<img>");
     $("#ask").append(questions["question-" + questionNumber].answer);
@@ -218,7 +220,7 @@ function nextQuestion() {
       correctGuesses++;
       
     } else {
-      x=0;
+      
       showAnswer(0);
       wrongGuesses++;
       
