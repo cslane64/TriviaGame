@@ -9,7 +9,7 @@ var questions = {
     C: "Boston Metropolitan Stadium",
     D: "Boston Garden",
     ans: "B",
-    answer: "B Fenway Park",
+    answer: "Fenway Park",
     image: "assets/images/fenway.gif",
   },
   "question-1": {
@@ -19,7 +19,7 @@ var questions = {
     C: "79 years",
     D: "86 years",
     ans: "D",
-    answer: "D 86 Years",
+    answer: "86 Years",
     image: "assets/images/2004.gif",
   },
   "question-2": {
@@ -29,7 +29,7 @@ var questions = {
     C: "6",
     D: "8",
     ans: "C",
-    answer: "C 6 Super Bowl Championships",
+    answer: "6 Super Bowl Championships",
     image: "assets/images/patriots.jpg",
   },
   "question-3": {
@@ -39,7 +39,7 @@ var questions = {
     C: "Phil Esposito",
     D: "Bobby Orr",
     ans: "A",
-    answer: "A Ray Bourque",
+    answer: "Ray Bourque",
     image: "assets/images/bourque.gif",
   },
   "question-4": {
@@ -49,7 +49,7 @@ var questions = {
     C: "Danny Ainge",
     D: "Ray Allen",
     ans: "B",
-    answer: "B Antoine Walker",
+    answer: "Antoine Walker",
     image: "assets/images/antoine.gif",
   },
   "question-5": {
@@ -59,7 +59,7 @@ var questions = {
     C: "Roger Clemmons",
     D: "Curt Schilling",
     ans: "B",
-    answer: "B Pedro Martinez",
+    answer: "Pedro Martinez",
     image: "assets/images/pedro.gif",
   },
   "question-6": {
@@ -69,7 +69,7 @@ var questions = {
     C: "Julian Edelman",
     D: "Rob Gronkowski",
     ans: "A",
-    answer: "A Wes Welker",
+    answer: "Wes Welker",
     image: "assets/images/wes.gif",
   },
   "question-7": {
@@ -79,7 +79,7 @@ var questions = {
     C: "Dustin Pedroia",
     D: "Jim Rice",
     ans: "C",
-    answer: "C Dustin Pedroia",
+    answer: "Dustin Pedroia",
     image: "assets/images/dustin.gif",
   },
   "question-8": {
@@ -89,7 +89,7 @@ var questions = {
     C: "2014",
     D: "2001",
     ans: "B",
-    answer: "B 2011",
+    answer: "2011",
     image: "assets/images/bruins.gif",
   },
   "question-9": {
@@ -99,7 +99,7 @@ var questions = {
     C: "Living on a Prayer",
     D: "Sweet Caroline",
     ans: "D",
-    answer: "D Sweet Caroline",
+    answer: "Sweet Caroline",
     image: "assets/images/citgo.gif",
   }
 
@@ -113,24 +113,25 @@ var correctGuesses = 0;
 var wrongGuesses = 0;
 var noGuess = 0;
 var questionNumber =0;
+var newGame = true;
 
 
 
 
 // Code for the timer
-
+$("#reset-game").hide();
 $("#start-game").on("click", start);
   
 
 
 function start() {
-    clearInterval(intervalId);
-    intervalId = setInterval(decreaseTime, 1000);
-    
-    $("#start-game").hide();
-    $("#timer").show();
-    nextQuestion();
-  }
+  clearInterval(intervalId);
+  intervalId = setInterval(decreaseTime, 1000);
+  $("#start-game").hide();
+  $("#timer").show();
+  nextQuestion();
+  newGame = false;
+}
 
 function decreaseTime(){
     num--;
@@ -147,21 +148,20 @@ function decreaseTime(){
     }
 }
 
-/*function resetGame() {
-  
+function resetGame() {
+  num = 20;
   correctGuesses = 0;
   wrongGuesses = 0;
   noGuess = 0;
   questionNumber = 0;
-  //clearInterval(intervalId);
-  intervalId = setInterval(decreaseTime, 1000);
-  nextQuestion();
-}*/
+  start();
+}
 
 function nextQuestion() {
     //console.log("nextQuestion");
     //console.log(questions["question-1"]);
     $("#ask").empty();
+    $("#display-answer-img").empty();
     $("#A").empty();
     $("#B").empty();
     $("#C").empty();
@@ -185,17 +185,25 @@ function nextQuestion() {
 
   }
 
-  function showAnswer() {
+  function showAnswer(x) {
+    
     $("#ask").empty();
+    $("#display-answer-img").empty();
     $("#A").empty();
     $("#B").empty();
     $("#C").empty();
     $("#D").empty();
     // show the answer
+    
+    if (x===1) {
+      $("#ask").prepend("<h2>That is Correct</h2>");
+    } else {
+      $("#ask").prepend("<h2>That is not Correct</h2>");
+    }
     var answerImage = $("<img>");
     $("#ask").append(questions["question-" + questionNumber].answer);
     answerImage.attr("src", questions["question-" + questionNumber].image);
-    $("#ask").append(answerImage);
+    $("#display-answer-img").append(answerImage);
     
     questionNumber ++;
     clearTimeout(answerID);
@@ -206,19 +214,21 @@ function nextQuestion() {
     userAnswer = $(this).attr("data-answer");
     $("#timer").hide();
     if (userAnswer === questions["question-" + questionNumber].ans) {
-      showAnswer();
+      showAnswer(1);
       correctGuesses++;
-      console.log(correctGuesses);
+      
     } else {
-      showAnswer();
+      x=0;
+      showAnswer(0);
       wrongGuesses++;
-      console.log(wrongGuesses);
+      
     }
 
     })
 
     function userStats() {
       $("#ask").empty();
+      $("#display-answer-img").empty();
       $("#A").empty();
       $("#B").empty();
       $("#C").empty();
@@ -231,9 +241,9 @@ function nextQuestion() {
       $("#B").append("<h4>Incorrect Guesses: " + wrongGuesses);
       $("#D").append("<h4>No guess attempted: " + noGuess);
 
-      $("#start-game").text("Play Again");
-      $("#start-game").show();
-      //$("#start-game").on("click", resetGame); 
+      
+      $("#reset-game").show();
+      $("#reset-game").on("click", resetGame); 
     };
 
   

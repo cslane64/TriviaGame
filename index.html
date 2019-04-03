@@ -19,48 +19,51 @@
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">Boston Sports Trivia Game</h1>
-                
+
             </div>
         </div>
         <div class="row" id="timer-row">
-
-
             <div class="col-md-8" id="timer-left-margin">
-                <!--<button class="btn btn-primary" id="start-game" type="submit">Start Game</button>-->
+                
                 <button class="button" id="start-game" type="button">Start Game</button>
-               <!-- <button id="start-game">Stop</button>-->
+                <button class="button" id="reset-game" type="button">Play Again</button>
+                
             </div>
             <div class="col-md-4" id="timer">
 
             </div>
         </div>
-            <div class="row" id="question-row">
-                <div class="col-lg-6" id="question-left-margin">
+        <div id="backdrop">
+        <div class="row" id="question-row">
+            <div class="col-lg-3" id="question-left-margin">
 
-                </div>
-                <div class="col-lg-6" id="question">
-                    <p id = "ask"></p>
-                </div>
+            </div>
+            <div class="col-lg-9" id="question">
+                <h4 id="ask"></h4>
+            </div>
+        </div>
+        <div class="row" id="answers-row">
+            <div class="col-lg-6" id="answers-left-margin">
+                <p id="display-answer-img"></p>
+            </div>
+            <div class="col-lg-6" id="answer">
+                <ul class="answer-list">
+                    <li class="guess" id="A" data-answer=A></li>
+                    <li class="guess" id="B" data-answer=B></li>
+                    <li class="guess" id="C" data-answer=C></li>
+                    <li class="guess" id="D" data-answer=D></li>
+                </ul>
             </div>
         </div>
     </div>
-    <div class="row" id="answers-row">
-        <div class="col-lg-6" id="answers-left-margin">
-
-        </div>
-        <div class="col-lg-6" id="answer">
-            <ul class="answer-list">
-                <li class="guess" id="A" data-answer = A></li>
-                <li class="guess" id="B" data-answer = B></li>
-                <li class="guess" id="C" data-answer = C></li>
-                <li class="guess" id="D" data-answer = D></li>
-            </ul>
-        </div>
     </div>
+    <!--</div>
+    </div>
+    </div>-->
+    
 
 
-    </div>
-    </div>
+    
 
 
 </body>

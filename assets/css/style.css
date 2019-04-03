@@ -4,21 +4,26 @@
     font-weight: bold;
 }
 
-/*body {
+body {
     background-image: url("../images/illustration.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1000;
-}*/
+    
+}
 
 #timer {
-    background-color: pink;
+    background-color:rgb(255,255,255, 0.5);
 
+}
+#ask {
+    margin-top: 50px;
 }
 
 #timer-left-margin {
-    background-color:#aaa;
+    background-color:rgb(255,255,255, 0.5);
     display: flex;
+    
 
     
 }
@@ -30,9 +35,29 @@
     background-color: #eee;
     color: #000;
     margin: 0 auto;
+    margin-top: 15px;
+}
+
+#reset-game {
+    background-color: #eee;
+    color: #000;
+    margin: 0 auto;
+    margin-top: 15px;
 }
 
 li {
+    color: #000;
     list-style-type: none;
     cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+}
+#display-answer-img {
+    margin-left: 140px;
+}
+#backdrop {
+    height: 600px;
+    background-color:rgb(255,255,255, 0.5);
+    
+    
 }
