@@ -4,7 +4,7 @@
     font-weight: bold;
 }
 
-body {
+#background {
     background-image: url("../images/illustration.jpg");
     background-repeat: no-repeat;
     background-size: cover;
