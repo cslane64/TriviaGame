@@ -1,16 +1,18 @@
+body {
+    background-color: navy;
+    /*background-image: url("../images/illustration.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*z-index: 1000; */
+    
+}
 .display-4 {
     text-align: center;
     color: #eee;
     font-weight: bold;
 }
 
-#background {
-    background-image: url("../images/illustration.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    /*z-index: 1000; */
-    
-}
+ 
 
 #timer {
     background-color:rgb(255,255,255, 0.5);
